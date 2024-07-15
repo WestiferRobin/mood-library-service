@@ -1,13 +1,9 @@
 namespace MoodLibraryApi.Dtos
 {
-
-    public class AlbumNameDto
+    public class AlbumDto
     {
-        public string Name { get; set; }
-    }
-
-    public class AlbumDto: AlbumNameDto
-    {
-        public List<SongDto> Songs { get; set; }
+        public required string Name { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public required List<AlbumSongDto> Songs { get; set; }
     }
 }

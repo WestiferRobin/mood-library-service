@@ -1,18 +1,18 @@
 version: '3.4'
 
 services:
-  mood-library-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: mood-library-api
-    ports:
-      - "8080:80"
-    environment:
-      - ConnectionStrings__Database=User ID=postgres;Password=postgres;Host=mood-library-db;Port=5432;Database=postgres;Pooling=true;
-      - ASPNETCORE_URLS=http://+:80
-    depends_on:
-      - mood-library-db
+  # mood-library-api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: mood-library-api
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     - ConnectionStrings__Database=User ID=postgres;Password=postgres;Host=mood-library-db;Port=5432;Database=postgres;Pooling=true;
+  #     - ASPNETCORE_URLS=http://+:80
+  #   depends_on:
+  #     - mood-library-db
 
   mood-library-db:
     image: postgres:latest

@@ -1,6 +1,7 @@
 using MoodLibraryApi.Repositories;
 using MoodLibraryApi.Services;
 using MoodLibraryApi.Db;
+using MoodLibraryApi.Mappers;
 // using MoodLibraryApi.Mappers;
 
 namespace MoodLibraryApi
@@ -23,20 +24,27 @@ namespace MoodLibraryApi
 
             services.AddControllers();
 
-            // services.AddAutoMapper(typeof(UserMapper));
+            services.AddAutoMapper(typeof(ArtistMapper));
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-
             var connectionString = IsLocal ? "LocalDatabase" : "Database";
             PostgresContext.ConnectionString = Configuration.GetConnectionString(connectionString);
 
-            services.AddScoped<ILibraryService, LibraryService>();
+            services.AddScoped<IArtistService, ArtistService>();
+            // services.AddScoped<IAlbumService, AlbumService>();
+            // services.AddScoped<IPlaylistService, PlaylistService>();
+            // services.AddScoped<IStationService, StationService>();
 
             services.AddScoped<IArtistRepository, ArtistRepository>();
+
             services.AddScoped<IAlbumRepository, AlbumRepository>();
+            services.AddScoped<IPlaylistRepository, PlaylistRepository>();
+            services.AddScoped<IStationRepository, StationRepository>();
+
             services.AddScoped<ISongRepository, SongRepository>();
+
 
             services.AddDbContext<PostgresContext>(options => Configuration.GetConnectionString(connectionString));
         }

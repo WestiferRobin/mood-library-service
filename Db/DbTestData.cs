@@ -27,7 +27,7 @@ namespace MoodLibraryApi.Db
                 { "My Chemical Romance", 4 }
             };
 
-            var artists = artistRegistry.Select(pair => new Artist { Name = pair.Key }).ToList();
+            var artists = artistRegistry.Select(pair => new Artist { Name = pair.Key, Genre = "Unknown" }).ToList();
             context.Artists.AddRange(artists);
             context.SaveChanges();
 

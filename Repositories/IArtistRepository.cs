@@ -5,9 +5,9 @@ namespace MoodLibraryApi.Repositories
     public interface IArtistRepository
     {
         Task<IEnumerable<Artist>> GetAll();
-        Task<Artist> GetById(Guid id);
+        Task<Artist> Get(Guid artistId);
         Task Add(Artist artist);
         Task Update(Artist artist);
-        Task DeleteById(Guid id);
+        Task Delete(Artist artist);
     }
 }

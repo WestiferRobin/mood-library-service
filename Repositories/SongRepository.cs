@@ -18,9 +18,9 @@ namespace MoodLibraryApi.Repositories
             return await context.Songs.ToListAsync();
         }
 
-        public async Task<Song> GetById(Guid id)
+        public async Task<Song> Get(Guid songId)
         {
-            return await context.Songs.FindAsync(id);
+            return await context.Songs.FindAsync();
         }
 
         public async Task Add(Song song)
@@ -35,11 +35,11 @@ namespace MoodLibraryApi.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task DeleteById(Guid id)
+        public async Task Delete(Song song)
         {
-            var song = await GetById(id);
             context.Songs.Remove(song);
             await context.SaveChangesAsync();
         }
+
     }
 }

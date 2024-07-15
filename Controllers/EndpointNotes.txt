@@ -1,0 +1,23 @@
+Objective: Refactor LibraryController
+
+/artist:
+GET:
+    - /all => get all artists
+    - /<id> => get artist by id
+    - /<id>/discography => get artist discography by id 
+POST:
+    - / => query artist besides id
+    - /discography => 
+    - /<id> => add artist
+    - /<id>/discography => add artist and it's discography
+PUT:
+    - /<id>/ => update artist by properties
+DELETE:
+    - /<id> => delete artist by id
+
+DO THE SAME FOR FOLLOWING CONTROLLERS
+/album:
+/playlist:
+/station:
+
+

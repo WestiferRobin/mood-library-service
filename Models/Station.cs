@@ -3,19 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MoodLibraryApi.Models
 {
-    [Table("playlists")]
-    public class Playlist
+    [Table("stations")]
+    public class Station
     {
         [Key]
         [Column("id")]
         public Guid Id { get; set; }
 
         [Required]
-        [Column("name")]
-        public string Name { get; set; }
-
-        [Required]
-        [Column("owner")]
-        public Guid Owner { get; set; }
+        [Column("genre")]
+        public string Genre { get; set; }
     }
 }

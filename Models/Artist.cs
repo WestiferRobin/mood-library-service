@@ -12,7 +12,12 @@ namespace MoodLibraryApi.Models
 
         [Required]
         [Column("name")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
+
+        [Required]
+        [Column("genre")]
+        public required string Genre { get; set; }
+
         public ICollection<Song> Songs { get; set; }
         public ICollection<Album> Albums { get; set; }
     }
