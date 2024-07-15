@@ -1,0 +1,5 @@
+Models: Songs =N:1=> Albums =N:1=> Artists
+Dtos: AlbumDto, ArtistDto, DiscographyDto
+
+Models: Songs =N:N=> PlaylistSongs =1:1=> Playlists
+Dtos: PlaylistDto, StationDto
