@@ -19,7 +19,8 @@ namespace MoodLibraryApi.Repositories
         }
         public async Task<Album> Get(Guid id)
         {
-            return await context.Albums.FindAsync(id);
+            var album = await context.Albums.FindAsync(id);
+            return album!;
         }
         public async Task Add(Album album)
         {

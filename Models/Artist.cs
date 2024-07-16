@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MoodLibraryApi.Models.Songs;
 
 namespace MoodLibraryApi.Models
 {

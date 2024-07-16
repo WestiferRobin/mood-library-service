@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoodLibraryApi.Db;
-using MoodLibraryApi.Models;
+using MoodLibraryApi.Models.Songs;
 
 namespace MoodLibraryApi.Repositories
 {
@@ -20,7 +20,8 @@ namespace MoodLibraryApi.Repositories
 
         public async Task<Song> Get(Guid songId)
         {
-            return await context.Songs.FindAsync();
+            var song = await context.Songs.FindAsync();
+            return song!;
         }
 
         public async Task Add(Song song)

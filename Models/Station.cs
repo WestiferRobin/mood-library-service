@@ -9,9 +9,9 @@ namespace MoodLibraryApi.Models
         [Key]
         [Column("id")]
         public Guid Id { get; set; }
-
+        
         [Required]
         [Column("genre")]
-        public string Genre { get; set; }
+        public required string Genre { get; set; }
     }
 }

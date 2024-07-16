@@ -21,37 +21,43 @@ namespace MoodLibraryApi.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            return Ok("TODO");
+            var results = await service.GetAllItems();
+            return Ok(results);
         }
 
         [HttpGet("artists")]
         public async Task<ActionResult> GetAllArtists()
         {
-            return Ok("Get all artists");
+            var allArtists = await service.GetAllArtists();
+            return Ok(allArtists);
         }
 
         [HttpGet("albums")]
         public async Task<ActionResult> GetAllAlbums()
         {
-            return Ok("Get all albums");
+            var allAlbums = await service.GetAllAlbums();
+            return Ok(allAlbums);
         }
 
         [HttpGet("playlists")]
         public async Task<ActionResult> GetAllPlaylists()
         {
-            return Ok("Get all playlists");
+            var allPlaylists = await service.GetAllPlaylists();
+            return Ok(allPlaylists);
         }
 
         [HttpGet("stations")]
         public async Task<ActionResult> GetAllStations()
         {
-            return Ok("Get all stations");
+            var allStations = await service.GetAllStations();
+            return Ok(allStations);
         }
 
         [HttpGet("songs")]
         public async Task<ActionResult> GetAllSongs()
         {
-            return Ok("Get all songs");
+            var allSongs = await service.GetAllSongs();
+            return Ok(allSongs);
         }
     }
 }

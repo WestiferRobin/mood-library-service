@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoodLibraryApi.Models;
+using MoodLibraryApi.Models.Songs;
 
 namespace MoodLibraryApi.Db
 {

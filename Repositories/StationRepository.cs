@@ -20,7 +20,8 @@ namespace MoodLibraryApi.Repositories
 
         public async Task<Station> Get(Guid stationId)
         {
-            return await context.Stations.FindAsync();
+            var station = await context.Stations.FindAsync(stationId);
+            return station!;
         }
 
         public async Task Add(Station station)

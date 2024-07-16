@@ -8,14 +8,36 @@ namespace MoodLibraryApi
 {
     public class Startup
     {
-        private const bool IsLocal = true;
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+
+        private static void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<ISearchService, SearchService>();
+
+            services.AddScoped<IArtistService, ArtistService>();
+
+            services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<IPlaylistService, PlaylistService>();
+            services.AddScoped<IStationService, StationService>();
+
+            services.AddScoped<ISongService, SongService>();
+        }
+
+        private static void AddRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IArtistRepository, ArtistRepository>();
+
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
+            services.AddScoped<IPlaylistRepository, PlaylistRepository>();
+            services.AddScoped<IStationRepository, StationRepository>();
+
+            services.AddScoped<ISongRepository, SongRepository>();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -24,27 +46,19 @@ namespace MoodLibraryApi
 
             services.AddControllers();
 
+            services.AddAutoMapper(typeof(SearchMapper));
             services.AddAutoMapper(typeof(ArtistMapper));
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            var connectionString = IsLocal ? "LocalDatabase" : "Database";
+            var isLocal = Configuration.GetValue<bool>("IsLocal");
+            var connectionString = isLocal ? "LocalDatabase" : "Database";
             PostgresContext.ConnectionString = Configuration.GetConnectionString(connectionString);
 
-            services.AddScoped<IArtistService, ArtistService>();
-            // services.AddScoped<IAlbumService, AlbumService>();
-            // services.AddScoped<IPlaylistService, PlaylistService>();
-            // services.AddScoped<IStationService, StationService>();
+            AddServices(services);
 
-            services.AddScoped<IArtistRepository, ArtistRepository>();
-
-            services.AddScoped<IAlbumRepository, AlbumRepository>();
-            services.AddScoped<IPlaylistRepository, PlaylistRepository>();
-            services.AddScoped<IStationRepository, StationRepository>();
-
-            services.AddScoped<ISongRepository, SongRepository>();
-
+            AddRepositories(services);
 
             services.AddDbContext<PostgresContext>(options => Configuration.GetConnectionString(connectionString));
         }

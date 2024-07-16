@@ -8,13 +8,11 @@ namespace MoodLibraryApi.Services
     public class ArtistService : IArtistService
     {
         private readonly IArtistRepository repository;
-        private readonly ILogger<ArtistService> logger;
         private readonly IMapper mapper;
 
-        public ArtistService(IArtistRepository repository, ILogger<ArtistService> logger, IMapper mapper)
+        public ArtistService(IArtistRepository repository, IMapper mapper)
         {
             this.repository = repository;
-            this.logger = logger;
             this.mapper = mapper;
         }
 
@@ -35,9 +33,15 @@ namespace MoodLibraryApi.Services
             await repository.Delete(artist);
         }
 
-        public async Task<IEnumerable<ArtistDto>> GetAll()
+        public async Task<IEnumerable<Artist>> GetAllModels()
         {
             var artists = await repository.GetAll();
+            return artists;
+        }
+
+        public async Task<IEnumerable<ArtistDto>> GetAll()
+        {
+            var artists = await GetAllModels();
             return mapper.Map<IEnumerable<ArtistDto>>(artists);
         }
 

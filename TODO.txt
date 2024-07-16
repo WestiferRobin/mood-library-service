@@ -1,0 +1,10 @@
+- Create Unit and Integration tests with Exceptions and Finish Controllers:
+    - SearchController
+    - AlbumController
+    - ArtistController
+- Continue development for:
+    - PlaylistController
+    - StationController
+- Finish other services
+    - TODOs for platform-user-service
+    - TODOs for mood-user-service

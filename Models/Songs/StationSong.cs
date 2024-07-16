@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MoodLibraryApi.Models
+namespace MoodLibraryApi.Models.Songs
 {
     [Table("station_songs")]
     public class StationSong
@@ -14,12 +14,12 @@ namespace MoodLibraryApi.Models
         [Column("station_id")]
         public Guid StationId { get; set; }
         [ForeignKey("StationId")]
-        public Station Station { get; set; }
+        public required Station Station { get; set; }
 
         [Required]
         [Column("song_id")]
         public Guid SongId { get; set; }
         [ForeignKey("SongId")]
-        public Song Song { get; set; }
+        public required Song Song { get; set; }
     }
 }

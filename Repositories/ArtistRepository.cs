@@ -20,7 +20,8 @@ namespace MoodLibraryApi.Repositories
 
         public async Task<Artist> Get(Guid artistId)
         {
-            return await context.Artists.FindAsync(artistId);
+            var artist = await context.Artists.FindAsync(artistId);
+            return artist!;
         }
 
         public async Task Add(Artist artist)

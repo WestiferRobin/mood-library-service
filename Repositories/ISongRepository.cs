@@ -1,4 +1,4 @@
-using MoodLibraryApi.Models;
+using MoodLibraryApi.Models.Songs;
 
 namespace MoodLibraryApi.Repositories
 {

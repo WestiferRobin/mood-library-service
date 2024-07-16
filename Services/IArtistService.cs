@@ -1,9 +1,11 @@
 using MoodLibraryApi.Dtos;
+using MoodLibraryApi.Models;
 
 namespace MoodLibraryApi.Services
 {
     public interface IArtistService
     {
+        Task<IEnumerable<Artist>> GetAllModels();
         Task<IEnumerable<ArtistDto>> GetAll();
         Task<ArtistDto> GetArtist(Guid artistId);
         Task<DiscographyDto> GetDiscography(Guid artistId);

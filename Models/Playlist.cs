@@ -12,7 +12,7 @@ namespace MoodLibraryApi.Models
 
         [Required]
         [Column("name")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required]
         [Column("owner")]

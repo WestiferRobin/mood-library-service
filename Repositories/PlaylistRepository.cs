@@ -20,7 +20,8 @@ namespace MoodLibraryApi.Repositories
 
         public async Task<Playlist> Get(Guid playlistId)
         {
-            return await context.Playlists.FindAsync();
+            var playlist = await context.Playlists.FindAsync();
+            return playlist!;
         }
 
         public async Task Add(Playlist playlist)

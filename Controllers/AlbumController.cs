@@ -44,12 +44,13 @@ namespace MoodLibraryApi.Controllers
             return Ok();
         }
 
-        [HttpPost("/songs")]
-        public async Task<IActionResult> AddSongs([FromBody] List<SongDto> songs)
-        {
-            await service.AddSongs(songs);
-            return Ok();
-        }
+        // TODO: Fix this crap
+        // [HttpPost("/songs")]
+        // public async Task<IActionResult> AddSongs([FromBody] List<SongDto> songs)
+        // {
+        //     await service.AddSongs(songs);
+        //     return Ok();
+        // }
         #endregion
 
         #region PUT Methods
