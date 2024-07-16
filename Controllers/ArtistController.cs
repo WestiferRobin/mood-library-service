@@ -44,12 +44,37 @@ namespace MoodLibraryApi.Controllers
         #endregion
 
         #region POST Methods
+        [HttpPost]
+        public async Task<IActionResult> AddArtist([FromBody] ArtistDto artist)
+        {
+            await service.AddArtist(artist);
+            return Ok();
+        }
+
+        [HttpPost("/discography")]
+        public async Task<IActionResult> AddDiscography([FromBody] DiscographyDto discography)
+        {
+            await service.AddDiscography(discography);
+            return Ok();
+        }
         #endregion
 
         #region PUT Methods
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateArtist(Guid id, [FromBody] ArtistDto artist)
+        {
+            await service.UpdateArtist(id, artist);
+            return Ok();
+        }
         #endregion
 
         #region DELETE Methods
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteArtist(Guid id)
+        {
+            await service.DeleteArtist(id);
+            return Ok();
+        }
         #endregion
     }
 }

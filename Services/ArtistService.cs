@@ -1,5 +1,6 @@
 using AutoMapper;
 using MoodLibraryApi.Dtos;
+using MoodLibraryApi.Models;
 using MoodLibraryApi.Repositories;
 
 namespace MoodLibraryApi.Services
@@ -17,6 +18,23 @@ namespace MoodLibraryApi.Services
             this.mapper = mapper;
         }
 
+        public async Task AddArtist(ArtistDto artist)
+        {
+            var artistModel = mapper.Map<Artist>(artist);
+            await repository.Add(artistModel);
+        }
+
+        public Task AddDiscography(DiscographyDto discography)
+        {
+            throw new NotImplementedException("Need to fix");
+        }
+
+        public async Task DeleteArtist(Guid id)
+        {
+            var artist = await repository.Get(id);
+            await repository.Delete(artist);
+        }
+
         public async Task<IEnumerable<ArtistDto>> GetAll()
         {
             var artists = await repository.GetAll();
@@ -31,7 +49,15 @@ namespace MoodLibraryApi.Services
 
         public Task<DiscographyDto> GetDiscography(Guid artistId)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Need to fix");
+        }
+
+        public async Task UpdateArtist(Guid id, ArtistDto artist)
+        {
+            var artistModel = await repository.Get(id);
+            artistModel.Name = artist.Name;
+            artistModel.Genre = artist.Genre;
+            await repository.Update(artistModel);
         }
     }
 }
