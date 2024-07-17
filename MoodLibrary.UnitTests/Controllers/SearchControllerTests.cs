@@ -30,6 +30,51 @@ namespace MoodLibrary.UnitTests.Controllers
             searchController = new SearchController(mockSearchService.Object, mockLogger.Object);
         }
 
+        [Test]
+        public async Task GetAll_ReturnsOkWithItems()
+        {
+            var debugId = new Guid("dddddddd-dddd-dddd-dddd-dddddddddddd");
+            var expectedResults = new List<SearchResponseDto> { 
+                new SearchResponseDto() { 
+                    Artists = [ 
+                        new SearchItemDto() { 
+                            Id = debugId, 
+                            Name = "Artist 1" 
+                        }
+                    ],
+                    Albums = [
+                        new SearchItemDto() { 
+                            Id = debugId, 
+                            Name = "Album 1" 
+                        }
+                    ],
+                    Playlists = [
+                        new SearchItemDto() { 
+                            Id = debugId, 
+                            Name = "Playlist 1" 
+                        }
+                    ],
+                    Stations = [
+                        new SearchItemDto() { 
+                            Id = debugId, 
+                            Name = "Station 1" 
+                        }
+                    ],
+                    Songs = [
+                        new SearchItemDto() { 
+                            Id = debugId, 
+                            Name = "Song 1" 
+                        }
+                    ]
+                }
+            };
+
+            var result = await searchController.GetAll();
+
+           var okResult = Assert.IsInstanceOf<OkObjectResult>(result.Result);
+           var actualResults = Assert.IsAssignableFrom<List<SearchResponseDto>>(okResult.Value);
+        }
+
         //[Test]
         //public async Task GetAll_ReturnsOkWithItems()
         //{
