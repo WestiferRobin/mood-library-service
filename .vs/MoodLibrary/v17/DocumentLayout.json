@@ -1,102 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Dev\\mood-library-service\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\controllers\\searchcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\controllers\\searchcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|D:\\Dev\\mood-library-service\\moodlibrary.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|D:\\Dev\\mood-library-service\\moodlibrary.api\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E4488EA-6191-4BD2-B511-34FAE67F7FC0}|MoodLibrary.IntegrationTests\\MoodLibrary.IntegrationTests.csproj|D:\\Dev\\mood-library-service\\moodlibrary.integrationtests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E4488EA-6191-4BD2-B511-34FAE67F7FC0}|MoodLibrary.IntegrationTests\\MoodLibrary.IntegrationTests.csproj|solutionrelative:moodlibrary.integrationtests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SearchControllerTests.cs",
-              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Controllers\\SearchControllerTests.cs",
-              "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\Controllers\\SearchControllerTests.cs",
-              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Controllers\\SearchControllerTests.cs",
-              "RelativeToolTip": "MoodLibrary.UnitTests\\Controllers\\SearchControllerTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T07:45:52.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "MoodLibrary.Api\\appsettings.json",
-              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\appsettings.json",
-              "RelativeToolTip": "MoodLibrary.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-17T06:41:19.342Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Dockerfile",
-              "RelativeDocumentMoniker": "MoodLibrary.Api\\Dockerfile",
-              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Dockerfile",
-              "RelativeToolTip": "MoodLibrary.Api\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-17T06:41:17.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\docker-compose.yml",
-              "RelativeDocumentMoniker": "MoodLibrary.Api\\docker-compose.yml",
-              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\docker-compose.yml",
-              "RelativeToolTip": "MoodLibrary.Api\\docker-compose.yml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2024-07-17T06:41:03.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.IntegrationTests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "MoodLibrary.IntegrationTests\\UnitTest1.cs",
-              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.IntegrationTests\\UnitTest1.cs",
-              "RelativeToolTip": "MoodLibrary.IntegrationTests\\UnitTest1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-17T06:39:51.539Z"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

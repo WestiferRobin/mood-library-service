@@ -1,8 +1,5 @@
 using Microsoft.Extensions.Logging;
 using Moq;
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MoodLibrary.Api.Services;
 using MoodLibrary.Api.Controllers;
@@ -34,45 +31,53 @@ namespace MoodLibrary.UnitTests.Controllers
         public async Task GetAll_ReturnsOkWithItems()
         {
             var debugId = new Guid("dddddddd-dddd-dddd-dddd-dddddddddddd");
-            var expectedResults = new List<SearchResponseDto> { 
-                new SearchResponseDto() { 
-                    Artists = [ 
-                        new SearchItemDto() { 
-                            Id = debugId, 
-                            Name = "Artist 1" 
-                        }
-                    ],
-                    Albums = [
-                        new SearchItemDto() { 
-                            Id = debugId, 
-                            Name = "Album 1" 
-                        }
-                    ],
-                    Playlists = [
-                        new SearchItemDto() { 
-                            Id = debugId, 
-                            Name = "Playlist 1" 
-                        }
-                    ],
-                    Stations = [
-                        new SearchItemDto() { 
-                            Id = debugId, 
-                            Name = "Station 1" 
-                        }
-                    ],
-                    Songs = [
-                        new SearchItemDto() { 
-                            Id = debugId, 
-                            Name = "Song 1" 
-                        }
-                    ]
-                }
+            var expectedResults = new SearchResponseDto()
+            {
+                Artists = [
+                    new SearchItemDto() {
+                        Id = debugId,
+                        Name = "Artist 1"
+                    }
+                ],
+                Albums = [
+                    new SearchItemDto() {
+                        Id = debugId,
+                        Name = "Album 1"
+                    }
+                ],
+                Playlists = [
+                    new SearchItemDto() {
+                        Id = debugId,
+                        Name = "Playlist 1"
+                    }
+                ],
+                Stations = [
+                    new SearchItemDto() {
+                        Id = debugId,
+                        Name = "Station 1"
+                    }
+                ],
+                Songs = [
+                    new SearchItemDto() {
+                        Id = debugId,
+                        Name = "Song 1"
+                    }
+                ]
             };
+
+            mockSearchService.Setup(s => s.GetAllItems()).ReturnsAsync(expectedResults);
 
             var result = await searchController.GetAll();
 
-           var okResult = Assert.IsInstanceOf<OkObjectResult>(result.Result);
-           var actualResults = Assert.IsAssignableFrom<List<SearchResponseDto>>(okResult.Value);
+            var okResult = result as OkObjectResult;
+            Assert.IsNotNull(okResult);
+            var actualResults = okResult.Value as SearchResponseDto;
+            Assert.IsNotNull(actualResults);
+            Assert.IsTrue(actualResults.Artists.Count == 1);
+            Assert.IsTrue(actualResults.Albums.Count == 1);
+            Assert.IsTrue(actualResults.Playlists.Count == 1);
+            Assert.IsTrue(actualResults.Stations.Count == 1);
+            Assert.IsTrue(actualResults.Songs.Count == 1);
         }
 
         //[Test]
