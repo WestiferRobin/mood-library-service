@@ -70,3 +70,171 @@ MusicLibrary/
 │   │   ├── TrackRepositoryIntegrationTests.cs
 │   ├── MusicLibrary.IntegrationTests.csproj
 └── README.md
+
+AND
+
+Certainly! Let's integrate unit tests and integration tests using NUnit into the example project structure you provided earlier, focusing on a hypothetical `Artist` API endpoint.
+
+### Example: Unit Tests with NUnit
+
+In unit tests, we'll focus on testing the behavior of individual components like services and repositories.
+
+#### Unit Test for `ArtistService` (UnitTests\Services\ArtistServiceTests.cs)
+
+```csharp
+using NUnit.Framework;
+using Moq;
+using MusicLibrary.Api.Controllers;
+using MusicLibrary.DTOs;
+using MusicLibrary.Models;
+using MusicLibrary.Services;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MusicLibrary.UnitTests.Services
+{
+    [TestFixture]
+    public class ArtistServiceTests
+    {
+        private Mock<IArtistRepository> _mockRepository;
+        private ArtistService _artistService;
+
+        [SetUp]
+        public void Setup()
+        {
+            _mockRepository = new Mock<IArtistRepository>();
+            _artistService = new ArtistService(_mockRepository.Object);
+        }
+
+        [Test]
+        public void GetArtists_ReturnsAllArtists()
+        {
+            // Arrange
+            var artists = new List<Artist>
+            {
+                new Artist { Id = 1, Name = "Artist 1" },
+                new Artist { Id = 2, Name = "Artist 2" }
+            };
+            _mockRepository.Setup(repo => repo.GetAllArtists()).Returns(artists);
+
+            // Act
+            var result = _artistService.GetArtists();
+
+            // Assert
+            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual("Artist 1", result.ElementAt(0).Name);
+            Assert.AreEqual("Artist 2", result.ElementAt(1).Name);
+        }
+
+        [Test]
+        public void GetArtistById_ReturnsCorrectArtist()
+        {
+            // Arrange
+            int artistId = 1;
+            var artist = new Artist { Id = artistId, Name = "Test Artist" };
+            _mockRepository.Setup(repo => repo.GetArtistById(artistId)).Returns(artist);
+
+            // Act
+            var result = _artistService.GetArtistById(artistId);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(artistId, result.Id);
+            Assert.AreEqual("Test Artist", result.Name);
+        }
+
+        // Additional tests for other methods in ArtistService
+    }
+}
+```
+
+### Example: Integration Tests with NUnit
+
+In integration tests, we'll test the interaction between components, focusing on scenarios that span multiple layers of the application.
+
+#### Integration Test for `ArtistController` (IntegrationTests\Controllers\ArtistControllerIntegrationTests.cs)
+
+```csharp
+using NUnit.Framework;
+using Microsoft.AspNetCore.Mvc;
+using MusicLibrary.Api.Controllers;
+using MusicLibrary.DTOs;
+using MusicLibrary.Services;
+using System.Collections.Generic;
+
+namespace MusicLibrary.IntegrationTests.Controllers
+{
+    [TestFixture]
+    public class ArtistControllerIntegrationTests
+    {
+        private ArtistsController _controller;
+
+        [SetUp]
+        public void Setup()
+        {
+            var artistService = new ArtistService(new Mock<IArtistRepository>().Object);
+            _controller = new ArtistsController(artistService);
+        }
+
+        [Test]
+        public void GetArtists_ReturnsAllArtists()
+        {
+            // Arrange
+            var expectedArtists = new List<ArtistReadDTO>
+            {
+                new ArtistReadDTO { Id = 1, Name = "Artist 1" },
+                new ArtistReadDTO { Id = 2, Name = "Artist 2" }
+            };
+
+            // Act
+            var result = _controller.GetArtists() as OkObjectResult;
+            var artists = result.Value as IEnumerable<ArtistReadDTO>;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(200, result.StatusCode);
+            Assert.IsNotNull(artists);
+            Assert.AreEqual(2, artists.Count);
+            Assert.AreEqual(expectedArtists[0].Name, artists.GetEnumerator().Current.Name);
+            Assert.AreEqual(expectedArtists[1].Name, artists.GetEnumerator().MoveNext().Current.Name);
+        }
+
+        [Test]
+        public void GetArtistById_ReturnsCorrectArtist()
+        {
+            // Arrange
+            int artistId = 1;
+            var expectedArtist = new ArtistReadDTO { Id = artistId, Name = "Test Artist" };
+
+            // Act
+            var result = _controller.GetArtistById(artistId) as OkObjectResult;
+            var artist = result.Value as ArtistReadDTO;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(200, result.StatusCode);
+            Assert.IsNotNull(artist);
+            Assert.AreEqual(expectedArtist.Name, artist.Name);
+        }
+
+        // Additional integration tests for other endpoints in ArtistsController
+    }
+}
+```
+
+### Explanation
+
+- **Unit Tests**: These focus on testing the behavior of individual components (services, repositories) in isolation. Mocking is often used to isolate the unit under test from its dependencies.
+
+- **Integration Tests**: These focus on testing how multiple components work together in a real scenario. Integration tests often involve real or in-memory databases, network calls, or other dependencies.
+
+### NUnit Features
+
+- **TestFixture Attribute**: Marks a class that contains NUnit tests.
+- **SetUp Attribute**: Runs before each test method to initialize common objects or state.
+- **Test Attribute**: Marks a method as a test method.
+- **Assert Class**: Provides methods for verifying conditions in tests (e.g., `AreEqual`, `IsNotNull`).
+
+### Conclusion
+
+By integrating unit tests and integration tests using NUnit into your example project, you ensure that your code is thoroughly tested for correctness and robustness. Adjust the examples according to your specific application and testing requirements, ensuring comprehensive coverage of your API endpoints and components.
