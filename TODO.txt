@@ -1,4 +1,5 @@
 - Create Unit and Integration tests with Exceptions and Finish Controllers:
+    - DO THE DESIGN BELOW OF TODO
     - SearchController
     - AlbumController
     - ArtistController
@@ -8,3 +9,64 @@
 - Finish other services
     - TODOs for platform-user-service
     - TODOs for mood-user-service
+
+
+MusicLibrary/
+├── MusicLibrary.sln
+├── MusicLibrary.Api/
+│   ├── Controllers/
+│   │   ├── ArtistController.cs
+│   │   ├── AlbumController.cs
+│   │   ├── TrackController.cs
+│   ├── DTOs/
+│   │   ├── ArtistDTO.cs
+│   │   ├── AlbumDTO.cs
+│   │   ├── TrackDTO.cs
+│   ├── Models/
+│   │   ├── Artist.cs
+│   │   ├── Album.cs
+│   │   ├── Track.cs
+│   ├── Repositories/
+│   │   ├── IArtistRepository.cs
+│   │   ├── ArtistRepository.cs
+│   │   ├── IAlbumRepository.cs
+│   │   ├── AlbumRepository.cs
+│   │   ├── ITrackRepository.cs
+│   │   ├── TrackRepository.cs
+│   ├── Services/
+│   │   ├── IArtistService.cs
+│   │   ├── ArtistService.cs
+│   │   ├── IAlbumService.cs
+│   │   ├── AlbumService.cs
+│   │   ├── ITrackService.cs
+│   │   ├── TrackService.cs
+│   ├── MusicLibrary.Api.csproj
+├── MusicLibrary.UnitTests/
+│   ├── Controllers/
+│   │   ├── ArtistControllerTests.cs
+│   │   ├── AlbumControllerTests.cs
+│   │   ├── TrackControllerTests.cs
+│   ├── Services/
+│   │   ├── ArtistServiceTests.cs
+│   │   ├── AlbumServiceTests.cs
+│   │   ├── TrackServiceTests.cs
+│   ├── Repositories/
+│   │   ├── ArtistRepositoryTests.cs
+│   │   ├── AlbumRepositoryTests.cs
+│   │   ├── TrackRepositoryTests.cs
+│   ├── MusicLibrary.UnitTests.csproj
+├── MusicLibrary.IntegrationTests/
+│   ├── Controllers/
+│   │   ├── ArtistControllerIntegrationTests.cs
+│   │   ├── AlbumControllerIntegrationTests.cs
+│   │   ├── TrackControllerIntegrationTests.cs
+│   ├── Services/
+│   │   ├── ArtistServiceIntegrationTests.cs
+│   │   ├── AlbumServiceIntegrationTests.cs
+│   │   ├── TrackServiceIntegrationTests.cs
+│   ├── Repositories/
+│   │   ├── ArtistRepositoryIntegrationTests.cs
+│   │   ├── AlbumRepositoryIntegrationTests.cs
+│   │   ├── TrackRepositoryIntegrationTests.cs
+│   ├── MusicLibrary.IntegrationTests.csproj
+└── README.md
