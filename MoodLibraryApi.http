@@ -1,6 +1,0 @@
-@MoodLibraryApi_HostAddress = http://localhost:5070
-
-GET {{MoodLibraryApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
