@@ -84,7 +84,19 @@ namespace MoodLibrary.UnitTests.Controllers
         [Test]
         public async Task GetAll_ReturnsNotFound()
         {
+            mockSearchService.Setup(s => s.GetAllItems()).ReturnsAsync(null);
 
+            var result = await searchController.GetAll();
+
+            var okResult = result.Result as OkObjectResult;
+            Assert.IsNotNull(okResult);
+            var actualResults = okResult.Value as SearchResponseDto;
+            Assert.IsNotNull(actualResults);
+            Assert.IsTrue(actualResults.Artists.Count == 1);
+            Assert.IsTrue(actualResults.Albums.Count == 1);
+            Assert.IsTrue(actualResults.Playlists.Count == 1);
+            Assert.IsTrue(actualResults.Stations.Count == 1);
+            Assert.IsTrue(actualResults.Songs.Count == 1);
         }
 
         #endregion
