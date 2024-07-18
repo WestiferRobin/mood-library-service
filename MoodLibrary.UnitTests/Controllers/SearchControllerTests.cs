@@ -15,7 +15,6 @@ namespace MoodLibrary.UnitTests.Controllers
         private Mock<ISearchService> mockSearchService;
         private Mock<ILogger<SearchController>> mockLogger;
         private SearchController searchController;
-
         private Dictionary<string, SearchItemDto> testData;
 
         [SetUp]
@@ -53,10 +52,11 @@ namespace MoodLibrary.UnitTests.Controllers
             };
         }
 
+        #region GetAll Tests
+
         [Test]
         public async Task GetAll_ReturnsOkWithItems()
         {
-            var debugId = new Guid("dddddddd-dddd-dddd-dddd-dddddddddddd");
             var expectedResults = new SearchResponseDto()
             {
                 Artists = [testData["Artist"]],
@@ -70,7 +70,7 @@ namespace MoodLibrary.UnitTests.Controllers
 
             var result = await searchController.GetAll();
 
-            var okResult = result as OkObjectResult;
+            var okResult = result.Result as OkObjectResult;
             Assert.IsNotNull(okResult);
             var actualResults = okResult.Value as SearchResponseDto;
             Assert.IsNotNull(actualResults);
@@ -81,5 +81,32 @@ namespace MoodLibrary.UnitTests.Controllers
             Assert.IsTrue(actualResults.Songs.Count == 1);
         }
 
+        [Test]
+        public async Task GetAll_ReturnsNotFound()
+        {
+
+        }
+
+        #endregion
+
+        #region GetAllArtists Tests
+
+        #endregion
+
+        #region GetAllAlbums Tests
+
+        #endregion
+
+        #region GetAllPlaylists Tests
+
+        #endregion
+
+        #region GetAllStations Tests
+
+        #endregion
+
+        #region GetAllSongs Tests
+
+        #endregion
     }
 }
