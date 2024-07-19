@@ -21,9 +21,10 @@ namespace MoodLibrary.Api.Controllers
 
         #region GET Methods
         [HttpGet("all")]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<ArtistDto>>> GetAll()
         {
             var artists = await service.GetAll();
+            if (!artists.Any()) return NotFound("No Artists were found");
             return Ok(artists);
         }
 

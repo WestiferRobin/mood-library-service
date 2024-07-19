@@ -1,6 +1,7 @@
 using AutoMapper;
 using MoodLibrary.Api.Dtos;
 using MoodLibrary.Api.Models;
+using MoodLibrary.Api.Models.Songs;
 using MoodLibrary.Api.Repositories;
 
 namespace MoodLibrary.Api.Services
@@ -46,6 +47,23 @@ namespace MoodLibrary.Api.Services
         {
             var model = mapper.Map<Album>(album);
             await repository.Add(model);
+        }
+
+        public async Task AddAlbumSongs(Guid id, IEnumerable<SongDto> songs)
+        {
+            var albumModel = await GetAlbumModel(id);
+            foreach (var song in songs)
+            {
+                var songModel = mapper.Map<Song>(song);
+                albumModel.Songs.Add(songModel);
+            }
+            await repository.Update(albumModel);
+        }
+
+        public async Task UpdateAlbum(AlbumDto album)
+        {
+            var model = mapper.Map<Album>(album);
+            await repository.Update(model);
         }
 
         public async Task DeleteAlbum(Guid id)

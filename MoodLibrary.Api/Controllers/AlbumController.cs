@@ -44,17 +44,21 @@ namespace MoodLibrary.Api.Controllers
             return Ok();
         }
 
-        // TODO: Fix this crap
-        // [HttpPost("/songs")]
-        // public async Task<IActionResult> AddSongs([FromBody] List<SongDto> songs)
-        // {
-        //     await service.AddSongs(songs);
-        //     return Ok();
-        // }
+        [HttpPost("{id}")]
+        public async Task<IActionResult> AddAlbumSongs(Guid id, [FromBody] IEnumerable<SongDto> songs)
+        {
+            await service.AddAlbumSongs(id, songs);
+            return Ok();
+        }
         #endregion
 
         #region PUT Methods
-        // TODO: Need to add update methods
+        [HttpPut]
+        public async Task<IActionResult> UpdateAlbum([FromBody] AlbumDto album)
+        {
+            await service.UpdateAlbum(album);
+            return Ok();
+        }
         #endregion
 
         #region DELETE Methods

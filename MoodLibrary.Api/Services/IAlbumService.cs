@@ -11,5 +11,7 @@ namespace MoodLibrary.Api.Services
         Task<AlbumDto> GetAlbum(Guid albumId);
         Task AddAlbum(AlbumDto album);
         Task DeleteAlbum(Guid id);
+        Task UpdateAlbum(AlbumDto album);
+        Task AddAlbumSongs(Guid id, IEnumerable<SongDto> songs);
     }
 }
