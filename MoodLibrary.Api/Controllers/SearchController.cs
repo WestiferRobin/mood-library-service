@@ -24,7 +24,7 @@ namespace MoodLibrary.Api.Controllers
         public async Task<ActionResult<SearchResponseDto>> GetAll()
         {
             var results = await service.GetAllItems();
-            if (results == null) return NotFound("No items we're found");
+            if (results == null) return NotFound("No items were found");
             return Ok(results);
         }
 
@@ -37,7 +37,7 @@ namespace MoodLibrary.Api.Controllers
         }
 
         [HttpGet("albums")]
-        public async Task<ActionResult> GetAllAlbums()
+        public async Task<ActionResult<IEnumerable<SearchItemDto>>> GetAllAlbums()
         {
             var allAlbums = await service.GetAllAlbums();
             if (!allAlbums.Any()) return NotFound("No Albums found in service");
@@ -45,7 +45,7 @@ namespace MoodLibrary.Api.Controllers
         }
 
         [HttpGet("playlists")]
-        public async Task<ActionResult> GetAllPlaylists()
+        public async Task<ActionResult<IEnumerable<SearchItemDto>>> GetAllPlaylists()
         {
             var allPlaylists = await service.GetAllPlaylists();
             if (!allPlaylists.Any()) return NotFound("No Playlists found in service");
@@ -53,7 +53,7 @@ namespace MoodLibrary.Api.Controllers
         }
 
         [HttpGet("stations")]
-        public async Task<ActionResult> GetAllStations()
+        public async Task<ActionResult<IEnumerable<SearchItemDto>>> GetAllStations()
         {
             var allStations = await service.GetAllStations();
             if (!allStations.Any()) return NotFound("No Stations found in service");
@@ -61,7 +61,7 @@ namespace MoodLibrary.Api.Controllers
         }
 
         [HttpGet("songs")]
-        public async Task<ActionResult> GetAllSongs()
+        public async Task<ActionResult<IEnumerable<SearchItemDto>>> GetAllSongs()
         {
             var allSongs = await service.GetAllSongs();
             if (!allSongs.Any()) return NotFound("No Songs found in service");
