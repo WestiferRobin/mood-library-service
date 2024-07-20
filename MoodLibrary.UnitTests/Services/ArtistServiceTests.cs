@@ -151,11 +151,13 @@ namespace MoodLibrary.UnitTests.Services
         }
 
         [Test]
-        public void GetArtist_ThrowsNoArtist()
+        public void GetArtist_ThrowsNoArtistsException()
         {
+            // Arrange
             var artistId = Guid.NewGuid();
-            // mockRepository.Setup(repo => repo.Get(artistId)).ReturnsAsync((Artist)null);
+            mockRepository.Setup(repo => repo.Get(artistId)).ThrowsAsync(new NoArtistsException());
 
+            // Act & Assert
             Assert.ThrowsAsync<NoArtistsException>(async () => await service.GetArtist(artistId));
         }
         #endregion

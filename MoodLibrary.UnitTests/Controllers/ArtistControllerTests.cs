@@ -64,12 +64,14 @@ namespace MoodLibrary.UnitTests.Controllers
         #endregion
 
         #region GetDiscography Tests
+        // TODO: Do this last
         #endregion
 
         #region AddArtist Tests
         #endregion
 
         #region AddDiscography Tests
+        // TODO: Do this last
         #endregion
 
         #region UpdateArtists Tests
