@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoodLibrary.Api.Db;
+using MoodLibrary.Api.Exceptions;
 using MoodLibrary.Api.Models;
 
 namespace MoodLibrary.Api.Repositories
@@ -20,7 +21,8 @@ namespace MoodLibrary.Api.Repositories
 
         public async Task<Artist> Get(Guid artistId)
         {
-            var artist = await context.Artists.FindAsync(artistId);
+            var artist = await context.Artists.FindAsync(artistId) 
+                ?? throw new NoArtistsException();
             return artist!;
         }
 
