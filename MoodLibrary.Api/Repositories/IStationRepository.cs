@@ -6,8 +6,8 @@ namespace MoodLibrary.Api.Repositories
     {
         Task<IEnumerable<Station>> GetAll();
         Task<Station> Get(Guid stationId);
-        Task Add(Station Station);
-        Task Update(Station Station);
-        Task Delete(Station Station);
+        Task Add(Station station);
+        Task Update(Station station);
+        Task Delete(Station station);
     }
 }

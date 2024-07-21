@@ -1,8 +1,8 @@
 namespace MoodLibrary.Api.Dtos
 {
-    public class SearchItemDto
+    public class PlaylistDto
     {
-        public Guid Id { get; set; }
         public required string Name { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }

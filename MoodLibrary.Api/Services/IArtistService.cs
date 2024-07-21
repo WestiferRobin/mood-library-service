@@ -1,5 +1,4 @@
 using MoodLibrary.Api.Dtos;
-using MoodLibrary.Api.Models;
 
 namespace MoodLibrary.Api.Services
 {
@@ -9,6 +8,6 @@ namespace MoodLibrary.Api.Services
         Task<ArtistDto> Get(Guid artistId);
         Task Add(ArtistDto artist);
         Task Update(ArtistDto artist);
-        Task Delete(Artist artist);
+        Task Delete(Guid artistId);
     }
 }

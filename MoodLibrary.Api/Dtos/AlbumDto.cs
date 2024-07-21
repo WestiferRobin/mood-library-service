@@ -4,6 +4,6 @@ namespace MoodLibrary.Api.Dtos
     {
         public required string Name { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public required List<AlbumSongDto> Songs { get; set; }
+        public required List<SongDto> Songs { get; set; }
     }
 }
