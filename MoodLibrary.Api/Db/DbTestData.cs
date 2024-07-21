@@ -3,7 +3,7 @@ using MoodLibrary.Api.Models.Songs;
 
 namespace MoodLibrary.Api.Db
 {
-    // TODO: Implement for test cases for unit and integration tests
+    // TODO: HOLD THIS SHIT IF IT BREAKS THEN COMMENT ALL
     public class DbTestData
     {
         public static void InitTestData(PostgresContext context)
