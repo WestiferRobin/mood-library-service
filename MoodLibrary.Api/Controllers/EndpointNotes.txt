@@ -21,6 +21,7 @@ LOGIC endpoints:
     - playlists
     - stations
     - songs
+- discography => It's a crud for a view
 
 
 

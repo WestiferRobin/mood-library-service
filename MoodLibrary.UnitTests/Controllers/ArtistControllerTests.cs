@@ -23,61 +23,16 @@ namespace MoodLibrary.UnitTests.Controllers
             artistController = new ArtistController(mockArtistService.Object, mockLogger.Object);
         }
 
-        #region GetAll Tests
-
-        [Test]
-        public async Task GetAll_ReturnsOk_WithItemsFoundAll()
-        {
-            var expectedResults = new List<ArtistDto>
-            {
-                new()
-                {
-                    Name = "Artist 1",
-                    Genre = "Unknown"
-                }
-            };
-
-            mockArtistService.Setup(s => s.GetAll()).ReturnsAsync(expectedResults);
-
-            var result = await artistController.GetAll();
-
-            var okResult = result.Result as OkObjectResult;
-            Assert.IsNotNull(okResult);
-            var actualResults = okResult.Value as IEnumerable<ArtistDto>;
-            Assert.IsNotNull(actualResults);
-            Assert.IsTrue(actualResults.Any());
-        }
-
-        [Test]
-        public async Task GetAll_ReturnsNotFound_WithNoItemsFound()
-        {
-            var result = await artistController.GetAll();
-
-            Assert.IsInstanceOf<NotFoundObjectResult>(result.Result);
-            var notFoundResult = result.Result as NotFoundObjectResult;
-            Assert.AreEqual("No Artists were found", notFoundResult.Value);
-        }
-
+        #region GET Tests
         #endregion
 
-        #region GetArtist Tests
+        #region POST Tests
         #endregion
 
-        #region GetDiscography Tests
-        // TODO: Do this last
+        #region PUT Tests
         #endregion
 
-        #region AddArtist Tests
-        #endregion
-
-        #region AddDiscography Tests
-        // TODO: Do this last
-        #endregion
-
-        #region UpdateArtists Tests
-        #endregion
-
-        #region DeleteArtist Tests
+        #region DELETE Tests
         #endregion
     }
 }

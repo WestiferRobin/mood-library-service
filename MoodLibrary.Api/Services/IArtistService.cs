@@ -4,10 +4,10 @@ namespace MoodLibrary.Api.Services
 {
     public interface IArtistService
     {
-        Task<IEnumerable<ArtistDto>> GetAll();
-        Task<ArtistDto> Get(Guid artistId);
-        Task Add(ArtistDto artist);
-        Task Update(ArtistDto artist);
-        Task Delete(Guid artistId);
+        Task<IEnumerable<ArtistDto>> GetAllArtists();
+        Task<ArtistDto> GetArtist(Guid artistId);
+        Task AddArtist(ArtistDto artist);
+        Task UpdateArtist(ArtistDto artist);
+        Task DeleteArtist(Guid artistId);
     }
 }

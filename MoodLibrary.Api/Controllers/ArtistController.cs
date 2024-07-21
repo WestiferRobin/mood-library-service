@@ -19,6 +19,39 @@ namespace MoodLibrary.Api.Controllers
         }
 
         #region GET Methods
+        [HttpGet]
+        public async Task<IActionResult> GetAllArtists()
+        {
+            try
+            {
+                var artists = await service.GetAllArtists();
+                return Ok(artists);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error fetching all artists");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetArtist(Guid id)
+        {
+            try
+            {
+                var artist = await service.GetArtist(id);
+                if (artist == null)
+                {
+                    return NotFound();
+                }
+                return Ok(artist);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, $"Error fetching artist with id {id}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
         #endregion
 
         #region POST Methods
