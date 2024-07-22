@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MoodLibrary.Api.Dtos;
+using MoodLibrary.Api.Exceptions;
 using MoodLibrary.Api.Services;
 
 namespace MoodLibrary.Api.Controllers
@@ -29,6 +30,11 @@ namespace MoodLibrary.Api.Controllers
                 var artists = await service.GetAllArtists();
                 return Ok(artists);
             }
+            catch (NoArtistsException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return NotFound();
+            }
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error fetching all artists");
@@ -42,11 +48,12 @@ namespace MoodLibrary.Api.Controllers
             try
             {
                 var artist = await service.GetArtist(id);
-                if (artist == null)
-                {
-                    return NotFound();
-                }
                 return Ok(artist);
+            }
+            catch (NoArtistsException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return NotFound();
             }
             catch (Exception ex)
             {
@@ -62,15 +69,15 @@ namespace MoodLibrary.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddArtist([FromBody] ArtistDto artistDto)
         {
-            if (artistDto == null)
-            {
-                return BadRequest("Artist data is null");
-            }
-
             try
             {
                 await service.AddArtist(artistDto);
-                return CreatedAtAction(nameof(GetArtist), new { id = artistDto.Id }, artistDto);
+                return NoContent();
+            }
+            catch (InvalidParamException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
@@ -86,21 +93,20 @@ namespace MoodLibrary.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateArtist(Guid id, [FromBody] ArtistDto artistDto)
         {
-            if (artistDto == null)
-            {
-                return BadRequest("Artist data is invalid");
-            }
-
             try
             {
-                var existingArtist = await service.GetArtist(id);
-                if (existingArtist == null)
-                {
-                    return NotFound();
-                }
-
-                await service.UpdateArtist(artistDto);
+                await service.UpdateArtist(id, artistDto);
                 return NoContent();
+            }
+            catch (NoArtistsException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return NotFound();
+            }
+            catch (InvalidParamException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
@@ -118,14 +124,13 @@ namespace MoodLibrary.Api.Controllers
         {
             try
             {
-                var existingArtist = await service.GetArtist(id);
-                if (existingArtist == null)
-                {
-                    return NotFound();
-                }
-
                 await service.DeleteArtist(id);
                 return NoContent();
+            }
+            catch (NoArtistsException ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return NotFound();
             }
             catch (Exception ex)
             {

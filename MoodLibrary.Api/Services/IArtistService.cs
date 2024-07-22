@@ -7,7 +7,7 @@ namespace MoodLibrary.Api.Services
         Task<IEnumerable<ArtistDto>> GetAllArtists();
         Task<ArtistDto> GetArtist(Guid artistId);
         Task AddArtist(ArtistDto artist);
-        Task UpdateArtist(ArtistDto artist);
+        Task UpdateArtist(Guid artistId, ArtistDto artist);
         Task DeleteArtist(Guid artistId);
     }
 }

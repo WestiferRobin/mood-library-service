@@ -17,26 +17,26 @@ namespace MoodLibrary.Api
 
         private static void AddServices(IServiceCollection services)
         {
-            services.AddScoped<ISearchService, SearchService>();
+            // services.AddScoped<ISearchService, SearchService>();
 
             services.AddScoped<IArtistService, ArtistService>();
 
-            services.AddScoped<IAlbumService, AlbumService>();
-            services.AddScoped<IPlaylistService, PlaylistService>();
-            services.AddScoped<IStationService, StationService>();
+            // services.AddScoped<IAlbumService, AlbumService>();
+            // services.AddScoped<IPlaylistService, PlaylistService>();
+            // services.AddScoped<IStationService, StationService>();
 
-            services.AddScoped<ISongService, SongService>();
+            // services.AddScoped<ISongService, SongService>();
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IArtistRepository, ArtistRepository>();
 
-            services.AddScoped<IAlbumRepository, AlbumRepository>();
-            services.AddScoped<IPlaylistRepository, PlaylistRepository>();
-            services.AddScoped<IStationRepository, StationRepository>();
+            // services.AddScoped<IAlbumRepository, AlbumRepository>();
+            // services.AddScoped<IPlaylistRepository, PlaylistRepository>();
+            // services.AddScoped<IStationRepository, StationRepository>();
 
-            services.AddScoped<ISongRepository, SongRepository>();
+            // services.AddScoped<ISongRepository, SongRepository>();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -46,7 +46,7 @@ namespace MoodLibrary.Api
 
             services.AddControllers();
 
-            services.AddAutoMapper(typeof(SearchMapper));
+            // services.AddAutoMapper(typeof(SearchMapper));
             services.AddAutoMapper(typeof(ArtistMapper));
 
             services.AddEndpointsApiExplorer();
