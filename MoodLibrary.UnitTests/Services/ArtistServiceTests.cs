@@ -1,182 +1,179 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Moq;
-using MoodLibrary.Api.Services;
-using MoodLibrary.Api.Models;
-using MoodLibrary.Api.Repositories;
-using AutoMapper;
 using MoodLibrary.Api.Dtos;
 using MoodLibrary.Api.Exceptions;
+using MoodLibrary.Api.Models;
+using MoodLibrary.Api.Repositories;
+using MoodLibrary.Api.Services;
 
 namespace MoodLibrary.UnitTests.Services
 {
     [TestFixture]
-    internal class ArtistServiceTests
+    public class ArtistServiceTests
     {
+        private Mock<IArtistRepository> mockRepository;
         private Mock<ILogger<ArtistService>> mockLogger;
         private Mock<IMapper> mockMapper;
-        private Mock<IArtistRepository> mockRepository;
         private ArtistService service;
-        private List<Artist> artistTestData;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            // Initialize mocks
+            mockRepository = new Mock<IArtistRepository>();
             mockLogger = new Mock<ILogger<ArtistService>>();
             mockMapper = new Mock<IMapper>();
-            mockRepository = new Mock<IArtistRepository>();
-
-            // Initialize the service with mocks
-            service = new ArtistService(
-                mockRepository.Object, 
-                mockMapper.Object,
-                mockLogger.Object
-            );
-
-            artistTestData = [
-                new() { 
-                    Id = Guid.NewGuid(), 
-                    Name = "Artist 1",
-                    Genre = "Rock"
-                },
-                new() { 
-                    Id = Guid.NewGuid(), 
-                    Name = "Artist 2",
-                    Genre = "Metal"
-                },
-                new() { 
-                    Id = Guid.NewGuid(), 
-                    Name = "Artist 3",
-                    Genre = "EDM"
-                },
-                new() {
-                    Id = Guid.NewGuid(),
-                    Name = "Artist 4",
-                    Genre = "Jazz"
-                },
-                new() {
-                    Id = Guid.NewGuid(),
-                    Name = "Artist 4",
-                    Genre = "Classical"
-                }
-            ];
+            service = new ArtistService(mockRepository.Object, mockLogger.Object, mockMapper.Object);
         }
 
-        #region GetAllModels Tests
+        #region GetAllArtists
+
         [Test]
-        public async Task GetAllModels_ReturnsArtists()
+        public async Task GetAllArtists_ReturnsListOfArtistDtos()
         {
-            mockRepository.Setup(repo => repo.GetAll()).ReturnsAsync(artistTestData);
+            // Arrange
+            var artists = new List<Artist> { new Artist { Id = Guid.NewGuid(), Name = "Artist1" } };
+            var artistDtos = new List<ArtistDto> { new ArtistDto { Name = "Artist1" } };
+            mockRepository.Setup(r => r.GetAllArtists()).ReturnsAsync(artists);
+            mockMapper.Setup(m => m.Map<IEnumerable<ArtistDto>>(artists)).Returns(artistDtos);
 
-            var result = await service.GetAllModels();
+            // Act
+            var result = await service.GetAllArtists();
 
-            Assert.IsNotNull(result);
-            Assert.AreEqual(artistTestData.Count, result.Count());
-
-            int index = 0;
-            foreach (var artist in artistTestData)
-            {
-                var expectedArtist = artistTestData[index];
-                Assert.AreEqual(artist.Id, expectedArtist.Id);
-                Assert.AreEqual(artist.Name, expectedArtist.Name);
-                Assert.AreEqual(artist.Genre, expectedArtist.Genre);
-                index += 1;
-            }
+            // Assert
+            Assert.AreEqual(artistDtos, result);
         }
 
         [Test]
-        public void GetAllModels_ThrowsNoArtistsException()
+        public void GetAllArtists_ThrowsNoArtistsException_WhenNoArtistsExist()
         {
-            mockRepository.Setup(repo => repo.GetAll()).ReturnsAsync([]);
+            // Arrange
+            mockRepository.Setup(r => r.GetAllArtists()).ReturnsAsync(new List<Artist>());
 
-            Assert.ThrowsAsync<NoArtistsException>(service.GetAllModels);
+            // Act & Assert
+            Assert.ThrowsAsync<NoArtistsException>(() => service.GetAllArtists());
         }
+
         #endregion
 
-        #region GetAll Tests
-        [Test]
-        public async Task GetAllArtists_ReturnsArtists()
-        {
-            mockRepository.Setup(repo => repo.GetAll()).ReturnsAsync(artistTestData);
-            mockMapper.Setup(m => m.Map<IEnumerable<ArtistDto>>(It.IsAny<IEnumerable<Artist>>()))
-                      .Returns((IEnumerable<Artist> src) => src.Select(a => new ArtistDto
-                      {
-                          Name = a.Name,
-                          Genre = a.Genre
-                      }).ToList());
-
-            var result = await service.GetAll();
-
-            Assert.IsNotNull(result);
-            Assert.AreEqual(artistTestData.Count, result.Count());
-
-            int index = 0;
-            foreach (var artist in artistTestData)
-            {
-                var expectedArtist = artistTestData[index];
-                Assert.AreEqual(artist.Name, expectedArtist.Name);
-                Assert.AreEqual(artist.Genre, expectedArtist.Genre);
-                index += 1;
-            }
-        }
+        #region GetArtist
 
         [Test]
-        public void GetAll_ThrowsNoArtistsException()
-        {
-            mockRepository.Setup(repo => repo.GetAll()).ReturnsAsync([]);
-
-            Assert.ThrowsAsync<NoArtistsException>(service.GetAll);
-        }
-        #endregion
-
-        #region GetArtist Tests
-        [Test]
-        public async Task GetArtist_ReturnArtist()
-        {
-            var sample = artistTestData[0];
-            var id = sample.Id;
-
-            mockRepository.Setup(repo => repo.Get(id)).ReturnsAsync(sample);
-            mockMapper.Setup(m => m.Map<ArtistDto>(It.IsAny<Artist>()))
-                      .Returns((Artist src) => new ArtistDto
-                      {
-                          Name = src.Name,
-                          Genre = src.Genre
-                      });
-
-            var result = await service.GetArtist(id);
-
-            Assert.AreEqual(sample.Name, result.Name);
-            Assert.AreEqual(sample.Genre, result.Genre);
-        }
-
-        [Test]
-        public void GetArtist_ThrowsNoArtistsException()
+        public async Task GetArtist_ReturnsArtistDto()
         {
             // Arrange
             var artistId = Guid.NewGuid();
-            mockRepository.Setup(repo => repo.Get(artistId)).ThrowsAsync(new NoArtistsException());
+            var artist = new Artist { Id = artistId, Name = "Artist1" };
+            var artistDto = new ArtistDto { Id = artistId, Name = "Artist1" };
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync(artist);
+            mockMapper.Setup(m => m.Map<ArtistDto>(artist)).Returns(artistDto);
+
+            // Act
+            var result = await service.GetArtist(artistId);
+
+            // Assert
+            Assert.AreEqual(artistDto, result);
+        }
+
+        [Test]
+        public void GetArtist_ThrowsNoArtistsException_WhenArtistDoesNotExist()
+        {
+            // Arrange
+            var artistId = Guid.NewGuid();
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync((Artist)null);
 
             // Act & Assert
-            Assert.ThrowsAsync<NoArtistsException>(async () => await service.GetArtist(artistId));
+            Assert.ThrowsAsync<NoArtistsException>(() => service.GetArtist(artistId));
         }
+
         #endregion
 
-        #region GetDiscography Tests
-        // TODO: Do Discography Tests Last
+        #region AddArtist
+
+        [Test]
+        public async Task AddArtist_AddsArtist()
+        {
+            // Arrange
+            var artistDto = new ArtistDto { Name = "New Artist" };
+            var artist = new Artist { Name = "New Artist" };
+            mockMapper.Setup(m => m.Map<Artist>(artistDto)).Returns(artist);
+
+            // Act
+            await service.AddArtist(artistDto);
+
+            // Assert
+            mockRepository.Verify(r => r.AddArtist(artist), Times.Once);
+        }
+
+        [Test]
+        public void AddArtist_ThrowsInvalidParamException_WhenArtistDtoIsNull()
+        {
+            // Act & Assert
+            Assert.ThrowsAsync<InvalidParamException>(() => service.AddArtist(null));
+        }
+
         #endregion
 
-        #region AddArtist Tests
+        #region UpdateArtist
+
+        [Test]
+        public async Task UpdateArtist_UpdatesArtist()
+        {
+            // Arrange
+            var artistId = Guid.NewGuid();
+            var artistDto = new ArtistDto { Name = "Updated Artist" };
+            var artist = new Artist { Id = artistId, Name = "Old Artist" };
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync(artist);
+
+            // Act
+            await service.UpdateArtist(artistId, artistDto);
+
+            // Assert
+            mockRepository.Verify(r => r.UpdateArtist(It.Is<Artist>(a => a.Id == artistId && a.Name == "Updated Artist")), Times.Once);
+        }
+
+        [Test]
+        public void UpdateArtist_ThrowsNoArtistsException_WhenArtistDoesNotExist()
+        {
+            // Arrange
+            var artistId = Guid.NewGuid();
+            var artistDto = new ArtistDto { Name = "Updated Artist" };
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync((Artist)null);
+
+            // Act & Assert
+            Assert.ThrowsAsync<NoArtistsException>(() => service.UpdateArtist(artistId, artistDto));
+        }
+
         #endregion
 
-        #region AddDiscography Tests
-        // TODO: Do Discography Tests Last
-        #endregion
+        #region DeleteArtist
 
-        #region UpdateArtist Tests
-        #endregion
+        [Test]
+        public async Task DeleteArtist_DeletesArtist()
+        {
+            // Arrange
+            var artistId = Guid.NewGuid();
+            var artist = new Artist { Id = artistId, Name = "Artist1" };
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync(artist);
 
-        #region DeleteArtist Tests
-        #endregion 
+            // Act
+            await service.DeleteArtist(artistId);
+
+            // Assert
+            mockRepository.Verify(r => r.DeleteArtist(artist), Times.Once);
+        }
+
+        [Test]
+        public void DeleteArtist_ThrowsNoArtistsException_WhenArtistDoesNotExist()
+        {
+            // Arrange
+            var artistId = Guid.NewGuid();
+            mockRepository.Setup(r => r.GetArtist(artistId)).ReturnsAsync((Artist)null);
+
+            // Act & Assert
+            Assert.ThrowsAsync<NoArtistsException>(() => service.DeleteArtist(artistId));
+        }
+
+        #endregion
     }
 }
