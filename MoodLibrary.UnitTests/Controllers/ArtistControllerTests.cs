@@ -140,10 +140,11 @@ namespace MoodLibrary.UnitTests.Controllers
         [Test]
         public async Task AddArtist_ReturnsInternalError_WhenInternalServerError()
         {
-            var artistId = Guid.NewGuid();
-            mockService.Setup(s => s.GetArtist(artistId)).ThrowsAsync(new Exception());
+            var artists = TestData.GetArtistDtos();
+            var artistDto = artists[0];
+            mockService.Setup(s => s.AddArtist(artistDto)).ThrowsAsync(new Exception());
 
-            var result = await controller.GetArtist(artistId);
+            var result = await controller.AddArtist(artistDto);
 
             var errorResult = result as ObjectResult;
             Assert.IsNotNull(errorResult);
@@ -152,42 +153,69 @@ namespace MoodLibrary.UnitTests.Controllers
 
         #endregion
 
-        // #region PUT Methods
+        #region PUT Methods
 
-        // [Test]
-        // public async Task UpdateArtist_ReturnsNoContent()
-        // {
-        //     // Arrange
-        //     var artistId = Guid.NewGuid();
-        //     var artistDto = new ArtistDto { Name = "Updated Artist" };
+        [Test]
+        public async Task UpdateArtist_ReturnsOkResult()
+        {
+            var artistId = Guid.NewGuid();
+            var artists = TestData.GetArtistDtos();
+            var artistDto = artists[0];
+            mockService.Setup(s => s.UpdateArtist(artistId, artistDto)).Returns(Task.CompletedTask);
 
-        //     // Act
-        //     var result = await controller.UpdateArtist(artistId, artistDto);
+            var result = await controller.UpdateArtist(artistId, artistDto);
 
-        //     // Assert
-        //     var noContentResult = result as NoContentResult;
-        //     Assert.IsNotNull(noContentResult);
-        //     Assert.AreEqual(204, noContentResult.StatusCode);
-        // }
+            var okResult = result as OkResult;
+            Assert.IsNotNull(okResult);
+            Assert.AreEqual(200, okResult.StatusCode);
+            mockService.Verify(s => s.UpdateArtist(artistId, artistDto), Times.Once);
+        }
 
-        // [Test]
-        // public async Task UpdateArtist_ReturnsNotFound_WhenArtistDoesNotExist()
-        // {
-        //     // Arrange
-        //     var artistId = Guid.NewGuid();
-        //     var artistDto = new ArtistDto { Name = "Updated Artist" };
-        //     mockService.Setup(s => s.UpdateArtist(artistId, artistDto)).ThrowsAsync(new NoArtistsException());
+        [Test]
+        public async Task UpdateArtist_ReturnsNotFound_WhenArtistDoesNotExist()
+        {
+            var artistId = Guid.NewGuid();
+            var artists = TestData.GetArtistDtos();
+            var artistDto = artists[0];
+            mockService.Setup(s => s.UpdateArtist(artistId, artistDto)).ThrowsAsync(new NoArtistsException());
 
-        //     // Act
-        //     var result = await controller.UpdateArtist(artistId, artistDto);
+            var result = await controller.UpdateArtist(artistId, artistDto);
 
-        //     // Assert
-        //     var notFoundResult = result as NotFoundResult;
-        //     Assert.IsNotNull(notFoundResult);
-        //     Assert.AreEqual(404, notFoundResult.StatusCode);
-        // }
+            var notFoundResult = result as NotFoundResult;
+            Assert.IsNotNull(notFoundResult);
+            Assert.AreEqual(404, notFoundResult.StatusCode);
+        }
 
-        // #endregion
+        [Test]
+        public async Task UpdateArtist_ReturnsBadRequest_WhenInvalidParamExceptionThrown()
+        {
+            var artistId = Guid.NewGuid();
+            mockService.Setup(s => s.UpdateArtist(artistId, null)).ThrowsAsync(new InvalidParamException());
+
+            var result = await controller.UpdateArtist(artistId, null);
+
+            var badRequestResult = result as BadRequestObjectResult;
+            Assert.IsNotNull(badRequestResult);
+            Assert.AreEqual(400, badRequestResult.StatusCode);
+            Assert.AreEqual("Invalid parameter.", badRequestResult.Value);
+        }
+
+        [Test]
+        public async Task UpdateArtist_ReturnsInternalError_WhenInternalServerError()
+        {
+            var artistId = Guid.NewGuid();
+            var artists = TestData.GetArtistDtos();
+            var artistDto = artists[0];
+            mockService.Setup(s => s.UpdateArtist(artistId, artistDto)).ThrowsAsync(new Exception());
+
+            var result = await controller.UpdateArtist(artistId, artistDto);
+
+            var errorResult = result as ObjectResult;
+            Assert.IsNotNull(errorResult);
+            Assert.AreEqual(500, errorResult.StatusCode);
+        }
+
+        #endregion
 
         // #region DELETE Methods
 
@@ -223,6 +251,6 @@ namespace MoodLibrary.UnitTests.Controllers
         // }
 
         // #endregion
-    
+
     }
 }

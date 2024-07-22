@@ -10,14 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="TODO.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="TODO.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.7" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />

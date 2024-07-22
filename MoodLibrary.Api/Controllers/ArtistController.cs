@@ -72,7 +72,7 @@ namespace MoodLibrary.Api.Controllers
             try
             {
                 await service.AddArtist(artistDto);
-                return NoContent();
+                return Ok();
             }
             catch (InvalidParamException ex)
             {
@@ -96,7 +96,7 @@ namespace MoodLibrary.Api.Controllers
             try
             {
                 await service.UpdateArtist(id, artistDto);
-                return NoContent();
+                return Ok();
             }
             catch (NoArtistsException ex)
             {
