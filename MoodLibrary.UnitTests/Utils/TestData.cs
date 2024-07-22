@@ -1,3 +1,4 @@
+using MoodLibrary.Api.Dtos;
 using MoodLibrary.Api.Models;
 
 namespace MoodLibrary.UnitTests.Utils
@@ -31,5 +32,22 @@ namespace MoodLibrary.UnitTests.Utils
                 Genre = "Classical"
             }
         ];
+
+        public static List<ArtistDto> GetArtistDtos()
+        {
+            var dtos = new List<ArtistDto>();
+            
+            foreach (var artist in ArtistData)
+            {
+                var dto = new ArtistDto()
+                {
+                    Name = artist.Name,
+                    Genre = artist.Genre
+                };
+                dtos.Add(dto);
+            }
+
+            return dtos;
+        }
     }
 }

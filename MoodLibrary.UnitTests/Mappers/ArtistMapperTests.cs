@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoodLibrary.UnitTests.Mappers
+﻿namespace MoodLibrary.UnitTests.Mappers
 {
-    internal class ArtistMapperTests
+    public class ArtistMapperTests
     {
     }
 }
