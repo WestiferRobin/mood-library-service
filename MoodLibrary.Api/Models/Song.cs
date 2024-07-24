@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MoodLibrary.Api.Models.Songs
+namespace MoodLibrary.Api.Models
 {
     [Table("songs")]
     public class Song

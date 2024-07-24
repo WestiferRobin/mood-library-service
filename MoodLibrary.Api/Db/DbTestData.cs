@@ -1,5 +1,4 @@
 using MoodLibrary.Api.Models;
-using MoodLibrary.Api.Models.Songs;
 
 namespace MoodLibrary.Api.Db
 {

@@ -125,7 +125,7 @@ namespace MoodLibrary.Api.Controllers
             try
             {
                 await service.DeleteArtist(id);
-                return NoContent();
+                return Ok();
             }
             catch (NoArtistsException ex)
             {

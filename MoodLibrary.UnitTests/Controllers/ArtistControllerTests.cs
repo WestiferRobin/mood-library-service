@@ -217,40 +217,49 @@ namespace MoodLibrary.UnitTests.Controllers
 
         #endregion
 
-        // #region DELETE Methods
+        #region DELETE Methods
 
-        // [Test]
-        // public async Task DeleteArtist_ReturnsNoContent()
-        // {
-        //     // Arrange
-        //     var artistId = Guid.NewGuid();
+        [Test]
+        public async Task DeleteArtist_ReturnsOkResult()
+        {
+            var artistId = Guid.NewGuid();
+            mockService.Setup(s => s.DeleteArtist(artistId)).Returns(Task.CompletedTask);
 
-        //     // Act
-        //     var result = await controller.DeleteArtist(artistId);
+            var result = await controller.DeleteArtist(artistId);
 
-        //     // Assert
-        //     var noContentResult = result as NoContentResult;
-        //     Assert.IsNotNull(noContentResult);
-        //     Assert.AreEqual(204, noContentResult.StatusCode);
-        // }
+            var okResult = result as OkResult;
+            Assert.IsNotNull(okResult);
+            Assert.AreEqual(200, okResult.StatusCode);
+            mockService.Verify(s => s.DeleteArtist(artistId), Times.Once);
+        }
 
-        // [Test]
-        // public async Task DeleteArtist_ReturnsNotFound_WhenArtistDoesNotExist()
-        // {
-        //     // Arrange
-        //     var artistId = Guid.NewGuid();
-        //     mockService.Setup(s => s.DeleteArtist(artistId)).ThrowsAsync(new NoArtistsException());
+        [Test]
+        public async Task DeleteArtist_ReturnsNotFound_WhenArtistDoesNotExist()
+        {
+            var artistId = Guid.NewGuid();
+            mockService.Setup(s => s.DeleteArtist(artistId)).ThrowsAsync(new NoArtistsException());
 
-        //     // Act
-        //     var result = await controller.DeleteArtist(artistId);
+            var result = await controller.DeleteArtist(artistId);
 
-        //     // Assert
-        //     var notFoundResult = result as NotFoundResult;
-        //     Assert.IsNotNull(notFoundResult);
-        //     Assert.AreEqual(404, notFoundResult.StatusCode);
-        // }
+            var notFoundResult = result as NotFoundResult;
+            Assert.IsNotNull(notFoundResult);
+            Assert.AreEqual(404, notFoundResult.StatusCode);
+        }
 
-        // #endregion
+        [Test]
+        public async Task DeleteArtist_ReturnsInternalError_WhenInternalServerError()
+        {
+            var artistId = Guid.NewGuid();
+            mockService.Setup(s => s.DeleteArtist(artistId)).ThrowsAsync(new Exception());
+
+            var result = await controller.DeleteArtist(artistId);
+
+            var errorResult = result as ObjectResult;
+            Assert.IsNotNull(errorResult);
+            Assert.AreEqual(500, errorResult.StatusCode);
+        }
+
+        #endregion
 
     }
 }

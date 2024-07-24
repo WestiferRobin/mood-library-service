@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using MoodLibrary.Api.Models;
-using MoodLibrary.Api.Models.Songs;
 
 namespace MoodLibrary.Api.Db
 {
@@ -13,7 +12,6 @@ namespace MoodLibrary.Api.Db
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
-        public DbSet<Station> Stations { get; set; }
         public DbSet<Song> Songs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

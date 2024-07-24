@@ -1,20 +1,20 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MoodLibrary.Api.Models.Songs
+namespace MoodLibrary.Api.Models
 {
-    [Table("station_songs")]
-    public class StationSong
+    [Table("playlist_songs")]
+    public class PlaylistSong
     {
         [Key]
         [Column("id")]
         public Guid Id { get; set; }
 
         [Required]
-        [Column("station_id")]
-        public Guid StationId { get; set; }
-        [ForeignKey("StationId")]
-        public required Station Station { get; set; }
+        [Column("playlist_id")]
+        public Guid PlaylistId { get; set; }
+        [ForeignKey("PlaylistId")]
+        public required Playlist Playlist { get; set; }
 
         [Required]
         [Column("song_id")]

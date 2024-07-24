@@ -3,16 +3,52 @@
   "WorkspaceRootPath": "D:\\Dev\\mood-library-service\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\db\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\db\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\db\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\db\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\mappers\\artistmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\mappers\\artistmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\db\\postgrescontexttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\db\\postgrescontexttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\services\\artistservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\services\\artistservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\repositories\\artistrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\repositories\\artistrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\repositories\\artistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\repositories\\artistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\how_to_do_tdd.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\how_to_do_tdd.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|D:\\Dev\\mood-library-service\\moodlibrary.api\\services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|d:\\dev\\mood-library-service\\moodlibrary.unittests\\controllers\\artistcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5813A505-5763-45C7-9B70-322413ED1F87}|MoodLibrary.UnitTests\\MoodLibrary.UnitTests.csproj|solutionrelative:moodlibrary.unittests\\controllers\\artistcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\controllers\\artistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\controllers\\artistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|d:\\dev\\mood-library-service\\moodlibrary.api\\services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF73C13B-EF2B-419E-A1AE-A44CD5202578}|MoodLibrary.Api\\MoodLibrary.Api.csproj|solutionrelative:moodlibrary.api\\services\\artistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,18 +57,31 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 195,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "Artist.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Models\\Artist.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.Api\\Models\\Artist.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Models\\Artist.cs",
+              "RelativeToolTip": "MoodLibrary.Api\\Models\\Artist.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:18:57.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ArtistController.cs",
               "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Controllers\\ArtistController.cs",
               "RelativeDocumentMoniker": "MoodLibrary.Api\\Controllers\\ArtistController.cs",
               "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Controllers\\ArtistController.cs",
               "RelativeToolTip": "MoodLibrary.Api\\Controllers\\ArtistController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwGsAAAAwAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAADwv48AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T21:15:19.816Z",
               "EditorCaption": ""
@@ -40,31 +89,135 @@
           ]
         },
         {
-          "DockedWidth": 200,
+          "DockedWidth": 205,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Db\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.Api\\Db\\DbInitializer.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Db\\DbInitializer.cs",
+              "RelativeToolTip": "MoodLibrary.Api\\Db\\DbInitializer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:31:39.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostgresContext.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Db\\PostgresContext.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.Api\\Db\\PostgresContext.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Db\\PostgresContext.cs",
+              "RelativeToolTip": "MoodLibrary.Api\\Db\\PostgresContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:31:37.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ArtistMapper.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Mappers\\ArtistMapper.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.Api\\Mappers\\ArtistMapper.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Mappers\\ArtistMapper.cs",
+              "RelativeToolTip": "MoodLibrary.Api\\Mappers\\ArtistMapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:31:17.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PostgresContextTests.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Db\\PostgresContextTests.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\Db\\PostgresContextTests.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Db\\PostgresContextTests.cs",
+              "RelativeToolTip": "MoodLibrary.UnitTests\\Db\\PostgresContextTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:31:07.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ArtistRepositoryTests.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Repositories\\ArtistRepositoryTests.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\Repositories\\ArtistRepositoryTests.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Repositories\\ArtistRepositoryTests.cs",
+              "RelativeToolTip": "MoodLibrary.UnitTests\\Repositories\\ArtistRepositoryTests.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAUwI8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:29:45.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HOW_TO_DO_TDD.txt",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\HOW_TO_DO_TDD.txt",
+              "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\HOW_TO_DO_TDD.txt",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\HOW_TO_DO_TDD.txt",
+              "RelativeToolTip": "MoodLibrary.UnitTests\\HOW_TO_DO_TDD.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-07-24T21:20:33.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ArtistRepository.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Repositories\\ArtistRepository.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.Api\\Repositories\\ArtistRepository.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Repositories\\ArtistRepository.cs",
+              "RelativeToolTip": "MoodLibrary.Api\\Repositories\\ArtistRepository.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAzwCsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:20:20.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ArtistServiceTests.cs",
+              "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Services\\ArtistServiceTests.cs",
+              "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\Services\\ArtistServiceTests.cs",
+              "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Services\\ArtistServiceTests.cs",
+              "RelativeToolTip": "MoodLibrary.UnitTests\\Services\\ArtistServiceTests.cs",
+              "ViewState": "AQIAAJIAAAAAAAAAAADwv58AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T21:18:04.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ArtistService.cs",
               "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Services\\ArtistService.cs",
               "RelativeDocumentMoniker": "MoodLibrary.Api\\Services\\ArtistService.cs",
               "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.Api\\Services\\ArtistService.cs",
               "RelativeToolTip": "MoodLibrary.Api\\Services\\ArtistService.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAowAAAAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAA6wFQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T22:33:00.909Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "ArtistControllerTests.cs",
               "DocumentMoniker": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Controllers\\ArtistControllerTests.cs",
               "RelativeDocumentMoniker": "MoodLibrary.UnitTests\\Controllers\\ArtistControllerTests.cs",
               "ToolTip": "D:\\Dev\\mood-library-service\\MoodLibrary.UnitTests\\Controllers\\ArtistControllerTests.cs",
               "RelativeToolTip": "MoodLibrary.UnitTests\\Controllers\\ArtistControllerTests.cs",
-              "ViewState": "AQIAANIAAAAAAAAAAAAcwJsAAAAbAAAA",
+              "ViewState": "AQIAANoAAAAAAAAAAAAkwAkBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T22:31:49.136Z",
               "EditorCaption": ""
