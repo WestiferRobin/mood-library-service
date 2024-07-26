@@ -14,11 +14,6 @@ CRUD endpoints:
         - by id
 
 LOGIC endpoints:
-- search => All GET
-    - artists
-    - albums
-    - playlists
-    - songs
 - discography => It's a crud for a view
 
 

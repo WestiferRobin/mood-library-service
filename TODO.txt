@@ -3,6 +3,7 @@
     - Do Services for CRUD endpoints
     - Do Repositories
     - Do Dbs
+- Install and use a code coverage tool
 - Create Integration Tests for MoodLibrary.Api
     - Start with Controllers and go from there
 - Finish other services

@@ -1,16 +1,11 @@
-﻿//using Microsoft.EntityFrameworkCore;
-//using Moq;
-//using MoodLibrary.Api.Db;
-//using MoodLibrary.Api.Models;
-//using MoodLibrary.Api.Repositories;
-//using NUnit.Framework;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
+﻿// using Microsoft.EntityFrameworkCore;
+// using MoodLibrary.Api.Db;
+// using MoodLibrary.Api.Models;
+// using MoodLibrary.Api.Repositories;
+// using MoodLibrary.UnitTests.Utils;
 
-//namespace MoodLibrary.UnitTests.Repositories
-//{
+// namespace MoodLibrary.UnitTests.Repositories
+// {
 //    [TestFixture]
 //    public class ArtistRepositoryTests
 //    {
@@ -18,126 +13,132 @@
 //        private PostgresContext context;
 //        private ArtistRepository repository;
 
-//        [SetUp]
-//        public void SetUp()
-//        {
-//            dbContextOptions = new DbContextOptionsBuilder<PostgresContext>()
-//                .UseInMemoryDatabase(databaseName: "MoodLibraryTestDb")
-//                .Options;
-//            context = new PostgresContext(dbContextOptions);
-//            repository = new ArtistRepository(context);
-//        }
+//         [SetUp]
+//         public void SetUp()
+//         {
+//             // Configure In-Memory Database for testing
+//             dbContextOptions = new DbContextOptionsBuilder<PostgresContext>()
+//             .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+//             .Options;
+
+//             // Initialize context and repository
+//             context = new PostgresContext(dbContextOptions);
+//             repository = new ArtistRepository(context);
+//         }
 
 //        [TearDown]
 //        public void TearDown()
 //        {
-//            context.Database.EnsureDeleted();
 //            context.Dispose();
 //        }
 
 //        #region GetAllArtists
 
-//        [Test]
-//        public async Task GetAllArtists_ReturnsAllArtists()
-//        {
-//            var artists = new List<Artist>
-//            {
-//                new Artist { Id = Guid.NewGuid(), Name = "Artist1" },
-//                new Artist { Id = Guid.NewGuid(), Name = "Artist2" }
-//            };
+//         [Test]
+//         public async Task GetAllArtists_ReturnsAllArtists()
+//         {
+//             var artists = TestData.ArtistData;
 
-//            await context.Artists.AddRangeAsync(artists);
-//            await context.SaveChangesAsync();
+//             await context.Artists.AddRangeAsync(artists);
+//             await context.SaveChangesAsync();
 
-//            var result = await repository.GetAllArtists();
+//             var result = await repository.GetAllArtists();
 
-//            Assert.AreEqual(artists.Count, result.Count());
+//             Assert.AreEqual(artists.Count, result.Count());
+//         //    var artists = TestData.ArtistData;
+
+//         //    await context.Artists.AddRangeAsync(artists);
+//         //    await context.SaveChangesAsync();
+
+//         //    var result = await repository.GetAllArtists();
+
+//         //    Assert.AreEqual(artists.Count, result.Count());
 //        }
 
 //        #endregion
 
-//        #region GetArtist
+// //        #region GetArtist
 
-//        [Test]
-//        public async Task GetArtist_ReturnsArtist_WhenArtistExists()
-//        {
-//            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
+// //        [Test]
+// //        public async Task GetArtist_ReturnsArtist_WhenArtistExists()
+// //        {
+// //            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
 
-//            await context.Artists.AddAsync(artist);
-//            await context.SaveChangesAsync();
+// //            await context.Artists.AddAsync(artist);
+// //            await context.SaveChangesAsync();
 
-//            var result = await repository.GetArtist(artist.Id);
+// //            var result = await repository.GetArtist(artist.Id);
 
-//            Assert.AreEqual(artist.Id, result.Id);
-//            Assert.AreEqual(artist.Name, result.Name);
-//        }
+// //            Assert.AreEqual(artist.Id, result.Id);
+// //            Assert.AreEqual(artist.Name, result.Name);
+// //        }
 
-//        [Test]
-//        public async Task GetArtist_ReturnsNull_WhenArtistDoesNotExist()
-//        {
-//            var artistId = Guid.NewGuid();
+// //        [Test]
+// //        public async Task GetArtist_ReturnsNull_WhenArtistDoesNotExist()
+// //        {
+// //            var artistId = Guid.NewGuid();
 
-//            var result = await repository.GetArtist(artistId);
+// //            var result = await repository.GetArtist(artistId);
 
-//            Assert.IsNull(result);
-//        }
+// //            Assert.IsNull(result);
+// //        }
 
-//        #endregion
+// //        #endregion
 
-//        #region AddArtist
+// //        #region AddArtist
 
-//        [Test]
-//        public async Task AddArtist_AddsArtistSuccessfully()
-//        {
-//            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
+// //        [Test]
+// //        public async Task AddArtist_AddsArtistSuccessfully()
+// //        {
+// //            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
 
-//            await repository.AddArtist(artist);
+// //            await repository.AddArtist(artist);
 
-//            var result = await context.Artists.FindAsync(artist.Id);
+// //            var result = await context.Artists.FindAsync(artist.Id);
 
-//            Assert.AreEqual(artist.Id, result.Id);
-//            Assert.AreEqual(artist.Name, result.Name);
-//        }
+// //            Assert.AreEqual(artist.Id, result.Id);
+// //            Assert.AreEqual(artist.Name, result.Name);
+// //        }
 
-//        #endregion
+// //        #endregion
 
-//        #region UpdateArtist
+// //        #region UpdateArtist
 
-//        [Test]
-//        public async Task UpdateArtist_UpdatesArtistSuccessfully()
-//        {
-//            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
+// //        [Test]
+// //        public async Task UpdateArtist_UpdatesArtistSuccessfully()
+// //        {
+// //            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
 
-//            await context.Artists.AddAsync(artist);
-//            await context.SaveChangesAsync();
+// //            await context.Artists.AddAsync(artist);
+// //            await context.SaveChangesAsync();
 
-//            artist.Name = "UpdatedArtist";
-//            await repository.UpdateArtist(artist);
+// //            artist.Name = "UpdatedArtist";
+// //            await repository.UpdateArtist(artist);
 
-//            var result = await context.Artists.FindAsync(artist.Id);
+// //            var result = await context.Artists.FindAsync(artist.Id);
 
-//            Assert.AreEqual(artist.Name, result.Name);
-//        }
+// //            Assert.AreEqual(artist.Name, result.Name);
+// //        }
 
-//        #endregion
+// //        #endregion
 
-//        #region DeleteArtist
+// //        #region DeleteArtist
 
-//        [Test]
-//        public async Task DeleteArtist_DeletesArtistSuccessfully()
-//        {
-//            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
+// //        [Test]
+// //        public async Task DeleteArtist_DeletesArtistSuccessfully()
+// //        {
+// //            var artist = new Artist { Id = Guid.NewGuid(), Name = "Artist1" };
 
-//            await context.Artists.AddAsync(artist);
-//            await context.SaveChangesAsync();
+// //            await context.Artists.AddAsync(artist);
+// //            await context.SaveChangesAsync();
 
-//            await repository.DeleteArtist(artist);
+// //            await repository.DeleteArtist(artist);
 
-//            var result = await context.Artists.FindAsync(artist.Id);
+// //            var result = await context.Artists.FindAsync(artist.Id);
 
-//            Assert.IsNull(result);
-//        }
+// //            Assert.IsNull(result);
+// //        }
 
-//        #endregion
+// //        #endregion
 //    }
-//}
+// }
