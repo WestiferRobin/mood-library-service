@@ -1,4 +1,6 @@
 # mood-library-service
+TODO REFACTOR TO JAVA SPRING
+
 
 # docker/dev commands
 dotnet clean ; dotnet build 
